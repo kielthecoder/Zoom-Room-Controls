@@ -5,12 +5,49 @@
         "author": "Kiel Lofstrand"
     },
     "adapters": [
-
+        {
+            "model": "iTachIP2SL",
+            "ip": "192.168.1.50",
+            "uuid": "GlobalCache_001122334455",
+            "ports": [
+                {
+                    "id": "display",
+                    "name": "Display",
+                    "settings": {
+                        "baud_rate": "9600",
+                        "flow_control": "FLOW_NONE",
+                        "parity": "PARITY_NO"
+                    },
+                    "methods": [
+                        {
+                            "id": "power",
+                            "name": "Power",
+                            "type": "actions",
+                            "command": "POWR%   \\x0D",
+                            "params": [
+                                {
+                                    "id": "on",
+                                    "name": "On",
+                                    "value": "1"
+                                },
+                                {
+                                    "id": "off",
+                                    "name": "Off",
+                                    "value": "0"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
     ],
     "styles": [
-
+        "display.icon=icon_tv"
     ],
     "rules": {
-        
+        "meeting_started": [
+            "display.power.on"
+        ]
     }
 }
