@@ -48,6 +48,9 @@
     "rules": {
         "meeting_started": [
             "display.power.on"
+        ],
+        "meeting_ended": [
+            "display.power.off"
         ]
     }
 }
