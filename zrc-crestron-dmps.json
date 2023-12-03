@@ -1,0 +1,156 @@
+{
+    "about": {
+        "type": "Crestron DMPS Control",
+        "version": "1.0.0",
+        "author": "Kiel Lofstrand"
+    },
+    "adapters": [
+        {
+            "model": "GenericNetworkAdapter",
+            "ip": "tcp://192.168.1.50:50001",
+            "uuid": "CrestronDevice_1",
+            "ports": [
+                {
+                    "id": "displayLeft",
+                    "name": "Left Display",
+                    "methods": [
+                        {
+                            "id": "power",
+                            "name": "Power",
+                            "type": "actions",
+                            "command": "power %\\x0D",
+                            "params": [
+                                {
+                                    "id": "on",
+                                    "name": "On",
+                                    "value": "on"
+                                },
+                                {
+                                    "id": "off",
+                                    "name": "Off",
+                                    "value": "off"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "source",
+                            "name": "Source",
+                            "type": "actions",
+                            "command": "source %\\x0D",
+                            "params": [
+                                {
+                                    "id": "zoom",
+                                    "name": "Zoom",
+                                    "value": "1"
+                                },
+                                {
+                                    "id": "catv",
+                                    "name": "Cable TV",
+                                    "value": "3"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "model": "GenericNetworkAdapter",
+            "ip": "tcp://192.168.1.50:50002",
+            "uuid": "CrestronDevice_2",
+            "ports": [
+                {
+                    "id": "displayRight",
+                    "name": "Right Display",
+                    "methods": [
+                        {
+                            "id": "power",
+                            "name": "Power",
+                            "type": "actions",
+                            "command": "power %\\x0D",
+                            "params": [
+                                {
+                                    "id": "on",
+                                    "name": "On",
+                                    "value": "on"
+                                },
+                                {
+                                    "id": "off",
+                                    "name": "Off",
+                                    "value": "off"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "source",
+                            "name": "Source",
+                            "type": "actions",
+                            "command": "source %\\x0D",
+                            "params": [
+                                {
+                                    "id": "zoom",
+                                    "name": "Zoom",
+                                    "value": "2"
+                                },
+                                {
+                                    "id": "catv",
+                                    "name": "Cable TV",
+                                    "value": "3"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "model": "GenericNetworkAdapter",
+            "ip": "tcp://192.168.1.50:50003",
+            "uuid": "CrestronDevice_3",
+            "ports": [
+                {
+                    "id": "catv",
+                    "name": "Cable TV",
+                    "methods": [
+                        {
+                            "id": "presets",
+                            "name": "Presets",
+                            "type": "actions",
+                            "command": "preset %\\x0D",
+                            "params": [
+                                {
+                                    "id": "preset1",
+                                    "name": "ABC",
+                                    "value": "on"
+                                },
+                                {
+                                    "id": "preset2",
+                                    "name": "NBC",
+                                    "value": "222"
+                                },
+                                {
+                                    "id": "preset3",
+                                    "name": "FOX",
+                                    "value": "333"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "styles": [
+        "displayLeft.icon=icon_tv",
+        "displayRight.icon=icon_tv",
+        "catv.icon=icon_cable_tv"
+    ],
+    "rules": {
+        "meeting_started": [
+            "displayLeft.power.on",
+            "displayRight.power.on",
+            "displayLeft.source.zoom",
+            "displayRight.source.zoom"
+        ]
+    }
+}
